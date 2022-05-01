@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+        #signup{
+           margin: auto;
+        }
+        h2{
+            color: white;
+        }
+        #supage{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+           
+            background-color: rgb(34, 226, 194);
+            width: 20%;
+            margin: auto;
+            
+            margin-top: 100px;   
+        }
+        #fullname{
+            height: 40px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #email{
+            height: 40px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #organization{
+            height: 40px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #subtn{
+            padding: 15px 60px 15px 60px ;
+            margin-bottom: 10px;
+            background-color: rgb(49, 175, 154);
+            border: 0px;
+            color: white;
+            
+           
+        }
+        button{
+            padding: 15px 60px 15px 60px ;
+            margin-bottom: 40px;
+            background-color: rgb(49, 175, 154);
+            border: 0px;
+            color: white;
+           
+        }
+    </style>
+  </head>
+  <body>
+   
+        
+    <div id="supage">
+            
+        <form id="signup">
+            <h2>-Visitor-</h2>
+            <input type="text" placeholder="Full name" id="fullname"> <br>
+            
+            <input type="text" placeholder="Email" id="email"> <br>
+            
+            <input type="text" placeholder="Organaization" id="organization"> <br>
+            <input type="submit" value="SIGN UP" id="subtn"> <br>
+            <button>RETURN</button>
+
+        </form>
+     </div>   
+   
+  </body>
+</html>
+
+<script>
+  document.querySelector("#signup").addEventListener("submit",formDetail);
+    var visitorArr=JSON.parse(localStorage.getItem("visitorData")) || [];
+  function formDetail(){
+      event.preventDefault();
+      var signupObj={
+         fullname:signup.fullname.value,
+         email:signup.email.value,
+         organization:signup.organization.value, 
+      };
+      visitorArr.push(signupObj);
+      console.log(visitorArr);
+      localStorage.setItem("visitorData",JSON.stringify(visitorArr))
+  }
+
+
+</script>
